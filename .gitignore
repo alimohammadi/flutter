@@ -1,0 +1,33 @@
+# Common excludes for all projects
+*.log
+*.tmp
+*.bak
+
+# Ignore any temporary files created by editors or IDEs
+.vscode/
+.idea/
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+
+# Ignore all `node_modules` directories in sub-projects
+**/node_modules/
+
+# Ignore all build directories in sub-projects
+**/build/
+
+# Flutter specific ignores
+**/build/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+
+# Ignore other platform-specific or project-specific directories
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/
+**/android/.gradle/
