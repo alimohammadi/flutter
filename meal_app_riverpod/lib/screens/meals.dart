@@ -7,13 +7,12 @@ class MealsScreen extends StatelessWidget {
   const MealsScreen({
     super.key,
     required this.meals,
-    required this.onSelectMeal,
     this.title,
   });
 
   final String? title;
   final List<Meal> meals;
-  final void Function(Meal meal) onSelectMeal;
+  void onSelectMeal(Meal meal) {}
 
   void selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(
