@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meal_app/providers/favorites_provider.dart';
+// import 'package:meal_app/providers/filters_provider.dart';
 import 'package:meal_app/screens/categories.dart';
 import 'package:meal_app/screens/filters.dart';
 import 'package:meal_app/screens/meals.dart';
@@ -18,16 +19,6 @@ class TabsScreen extends ConsumerStatefulWidget {
 class _TabsScreenState extends ConsumerState<TabsScreen> {
   int _selectedPageIndex = 0;
 
-  // void _showInfoMessage(String message) {
-  //   ScaffoldMessenger.of(context).clearSnackBars();
-  //   ScaffoldMessenger.of(context).showSnackBar(
-  //     SnackBar(
-  //       content: Text(message),
-  //       // duration: Duration.,
-  //     ),
-  //   );
-  // }
-
   void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index;
@@ -37,12 +28,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
   void _selectScreen(String identifier) async {
     Navigator.of(context).pop();
     if (identifier == "filters") {
-      // final result = await Navigator.of(context).push<Map<Filter, bool>>(
-      //   MaterialPageRoute(
-      //     builder: (ctx) => const FiltersScreen(),
-      //   ),
-      // );
-      Navigator.of(context).push<Map<Filter, bool>>(
+      await Navigator.of(context).push<Map<Filter, bool>>(
         MaterialPageRoute(
           builder: (ctx) => const FiltersScreen(),
         ),
@@ -56,6 +42,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
 
     Widget activePage = CategoriesScreen();
 
+    // final activeFilters = ref.watch(filtersProvider);
     var activePageTitle = "Categories";
 
     if (_selectedPageIndex == 1) {
